@@ -1,9 +1,13 @@
 package com.umbcalculator.calculator;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -132,10 +136,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     // Actualizar el TextView con el resultado
+
                     if (Error) {
                         textViewResult.setText("Error");
+                        Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
                     } else {
                         textViewResult.setText(String.valueOf(result));
+                        Toast.makeText(MainActivity.this, "Resultado: " + result, Toast.LENGTH_SHORT).show();
                     }
 
                     // Limpiar los valores actuales
@@ -143,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     operator = "";
                     Error=false;
                 }
+
             }
         });
     }
